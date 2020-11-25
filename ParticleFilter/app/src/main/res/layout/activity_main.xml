@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Home Layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/homeLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="100dp">
+            <Button
+                android:id="@+id/startCalibrateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="buttonHandler"
+                android:layout_weight="1"
+                android:text="Start Calibration" />
+            <Button
+                android:id="@+id/endCalibrateButton"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:onClick="buttonHandler"
+                android:text="End Calibration" />
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/toPFScreenButton"
+            android:onClick="buttonHandler"
+            android:text="Localisation UI" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/homeStepTV"/>
+
+        <TextView
+            android:id="@+id/calibrationDirectionTV"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <!--Canvas-->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/canvasLayer"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:layout_margin="30dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomLayer">
+        <ImageView
+            android:id="@+id/canvas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <!--Bottom-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bottomLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/defaultBottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:onClick="buttonHandler"
+                android:text="Back" />
+
+            <TextView
+                android:id="@+id/directionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Direction: " />
+
+            <TextView
+                android:id="@+id/stepCountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Step Count: " />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/debugBottom"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/upButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="moveParticles_demo"
+                android:text="Up" />
+
+            <Button
+                android:id="@+id/downButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="moveParticles_demo"
+                android:text="Down" />
+
+            <Button
+                android:id="@+id/leftButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="moveParticles_demo"
+                android:text="Left" />
+
+            <Button
+                android:id="@+id/rightButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="moveParticles_demo"
+                android:text="Right" />
+
+            <TextView
+                android:id="@+id/cellTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

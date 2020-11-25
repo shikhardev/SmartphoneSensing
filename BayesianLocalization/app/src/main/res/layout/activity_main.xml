@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Localisation Layer-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/localizationLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/activityLayer" >
+
+        <!--Home Layout-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="128dp"
+            android:layout_marginEnd="128dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/home_wifiTrainButton"
+                android:onClick="Button_Click_Handler"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:text="Train"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/home_wifiTestButton"
+                android:onClick="Button_Click_Handler"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:text="Test"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_wifiTrainButton" />
+
+            <Button
+                android:id="@+id/home_accelTrainButton"
+                android:onClick="Button_Click_Handler"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:text="Accelerometer"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_wifiTestButton" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--Wifi Train Layout-->
+        <LinearLayout
+            android:id="@+id/wifiTrainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!--Cell Location Buttons-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/train_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/custom"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.035"
+                    tools:layout_constraintLeft_creator="1"
+                    tools:layout_constraintRight_creator="1" />
+
+                <!--Top Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/train_topLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/train_midLayer"
+                    app:layout_constraintTop_toTopOf="@+id/train_imageView">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_16"
+                        android:text="16"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_13"
+                        android:text="13"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_16" />
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_11"
+                        android:text="11"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/wifi_train_selectedCell_13"/>
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_3"
+                        android:text="3"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <!--Mid Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/train_midLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/train_bottomLayer"
+                    app:layout_constraintTop_toBottomOf="@+id/train_topLayer">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_15"
+                        android:text="15"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_12"
+                        android:text="12"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_15"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_10"
+                        android:text="10"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_12"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_9"
+                        android:text="9"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_10"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_8"
+                        android:text="8"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_9"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_7"
+                        android:text="7"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_8"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_6"
+                        android:text="6"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_7"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_5"
+                        android:text="5"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_4"
+                        android:text="4"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_train_selectedCell_5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_2"
+                        android:text="2"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <!--Bottom Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/train_bottomLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/train_imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/train_midLayer">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_14"
+                        android:text="14"
+                        android:layout_margin="0.5dp"
+                        android:layout_width="42dp"
+                        android:layout_height="58dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_train_selectedCell_1"
+                        android:text="1"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/wifi_train_statusTV"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <ListView
+                android:id="@+id/wifi_train_wifiList"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ListView>
+
+            <!--Last Row Buttons: Back and show wifi-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <!--Take Me home-->
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:onClick="takeMeHome"
+                    android:text="Back" />
+
+                <!--Show Wifi Button-->
+                <Button
+                    android:id="@+id/wifi_train_showWifiButton"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="Button_Click_Handler"
+                    android:text="Show Wifi" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/wifi_train_clearDB"
+                    android:text="Clear DB"
+                    android:onClick="Button_Click_Handler" />
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/wifi_train_Save"
+                    android:text="Save training data"
+                    android:onClick="Button_Click_Handler"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--Wifi Test Layout-->
+        <LinearLayout
+            android:id="@+id/wifiTestLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!--Cell Location Buttons-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/test_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/custom"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.035"
+                    tools:layout_constraintLeft_creator="1"
+                    tools:layout_constraintRight_creator="1" />
+
+                <!--Top Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/test_topLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/test_midLayer"
+                    app:layout_constraintTop_toTopOf="@+id/test_imageView">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_16"
+                        android:text="16"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_13"
+                        android:text="13"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_16" />
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_11"
+                        android:text="11"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/wifi_locationCell_13"/>
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_3"
+                        android:text="3"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <!--Mid Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/test_midLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/test_bottomLayer"
+                    app:layout_constraintTop_toBottomOf="@+id/test_topLayer">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_15"
+                        android:text="15"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_12"
+                        android:text="12"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_15"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_10"
+                        android:text="10"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_12"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_9"
+                        android:text="9"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_10"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_8"
+                        android:text="8"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_9"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_7"
+                        android:text="7"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_8"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_6"
+                        android:text="6"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_7"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_5"
+                        android:text="5"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_4"
+                        android:text="4"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintLeft_toRightOf="@+id/wifi_locationCell_5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_2"
+                        android:text="2"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <!--Bottom Layer-->
+                <android.support.constraint.ConstraintLayout
+                    android:onClick="Button_Click_Handler"
+                    android:id="@+id/test_bottomLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/test_imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/test_midLayer">
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_14"
+                        android:text="14"
+                        android:layout_margin="0.5dp"
+                        android:layout_width="42dp"
+                        android:layout_height="58dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+                    <Button
+                        android:onClick="Button_Click_Handler"
+                        android:id="@+id/wifi_locationCell_1"
+                        android:text="1"
+                        android:layout_margin="1dp"
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/wifi_localisation_result_TV"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <!--Last Row Buttons: Back and show wifi-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <!--Take Me home-->
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:onClick="takeMeHome"
+                    android:text="Back" />
+
+                <!--Show Wifi Button-->
+                <Button
+                    android:id="@+id/wifi_test_locateMeButton"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="Button_Click_Handler"
+                    android:text="Locate Me" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--Accel Layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/accelTrainLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:gravity="center|top"
+                android:layout_weight="3"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="X-Axis"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/currentX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="0.0"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Y-Axis"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/currentY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="0.0"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Z-Axis"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/currentZ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="0.0"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:id="@+id/accel_trainStillButton"
+                android:text="Train - Still"
+                android:onClick="Button_Click_Handler"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:id="@+id/accel_trainMoveButton"
+                android:text="Train - Moving"
+                android:onClick="Button_Click_Handler"/>
+
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:text="Back"
+                android:onClick="takeMeHome"/>
+
+
+        </LinearLayout>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+    <!--Activity Layer-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activityLayer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/activityText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="asd"
+            android:textSize="20dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
